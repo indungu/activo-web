@@ -8,7 +8,7 @@ const miniCssExtractPlugin = require('mini-css-extract-plugin');
 // instantiating webpack dependencies
 const cleanWebpack = new cleanWebpackPlugin(['dist']);
 const htmlWebpack = new htmlWebpackPlugin({
-  //Todo: add html template
+  template: 'src/index.html'
 });
 const namedModulesPlugin = new webpack.NamedModulesPlugin();
 const hotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin();

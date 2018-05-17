@@ -1,5 +1,5 @@
 const path = require('path');
-const { cleanWebpack, definePlugin } = require('./webpack.plugins');
+const { cleanWebpack, definePlugin, htmlWebpack } = require('./webpack.plugins');
 
 module.exports = {
   entry: path.join(__dirname, '..', 'src', 'index.tsx'),
