@@ -1,20 +1,61 @@
 const path = require('path');
-const { cleanWebpack, definePlugin, htmlWebpack } = require('./webpack.plugins');
+const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const {
+  cleanWebpack,
+  definePlugin,
+  htmlWebpack
+} = require('./webpack.plugins');
+
+const isDevMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: path.join(__dirname, '..', 'src', 'index.tsx'),
   output: {
     path: path.join(__dirname, '..', 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.min.js',
     publicPath: '/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      pages: path.resolve(__dirname, 'src/pages/'),
+      pages: path.resolve(__dirname, '..', 'src/pages/'),
       components: path.resolve(__dirname, 'src/components/')
     },
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: {
+          loader: 'file-loader'
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          isDevMode ? 'style-loader' : miniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'awesome-typescript-loader'
+        }
+      }
+    ]
   },
   plugins: [htmlWebpack, cleanWebpack, definePlugin]
 };

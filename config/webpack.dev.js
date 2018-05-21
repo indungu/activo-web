@@ -3,7 +3,6 @@ const config = require('./webpack.config.js');
 const path = require('path');
 const {
   namedModulesPlugin,
-  htmlWebpack,
   hotModuleReplacementPlugin
 } = require('./webpack.plugins');
 
@@ -23,5 +22,5 @@ module.exports = merge(config, {
       ignored: /node_modules/
     }
   },
-  plugins: [namedModulesPlugin, hotModuleReplacementPlugin]
+  plugins: [namedModulesPlugin, hotModuleReplacementPlugin],
 });

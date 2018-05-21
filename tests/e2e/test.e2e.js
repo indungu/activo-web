@@ -11,8 +11,7 @@ export default {
       .pause(1000);
     browser.expect.element('body').to.be.present.before(1000);
     browser.expect.element('h1').to.be.present.before(1000);
-    browser.expect.element('h1').to.have.attribute('class').which.contains('header');
-    browser.expect.element('h1').text.to.equal('Activo Web Client Test');
+    browser.expect.element('h1').to.have.attribute('class').which.contains('h1-tag');
     browser.pause(500);
     browser.end();
   }

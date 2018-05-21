@@ -17,13 +17,5 @@ module.exports = merge(config, {
       new optimizeCSSAssetsPlugin({})
     ]
   },
-  plugins: [miniCssExtract],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [miniCssExtractPlugin.loader, 'css-loader']
-      }
-    ]
-  }
+  plugins: [miniCssExtract]
 });
