@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:mock-server": "http-server ./dist -p 1337",
     "test:e2e": "yarn build && concurrently \"yarn start:mock-server\" \"nightwatch\"",
+    "lint:scss": "stylelint"
     "lint:ts": "tslint --project tsconfig.json --config tslint.json"
   },
   "repository": {
@@ -49,6 +50,9 @@
     "tslint-jsdoc-rules": "^0.1.2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
+    "stylelint": "^9.2.1",
+    "stylelint-config-sass-guidelines": "^5.0.0",
+    "stylelint-scss": "^3.1.0",
     "typescript": "^2.8.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack-cli": "^2.1.3",
