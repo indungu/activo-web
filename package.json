@@ -8,7 +8,8 @@
     "build": "webpack --config config/webpack.prod.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:mock-server": "http-server ./dist -p 1337",
-    "test:e2e": "yarn build && concurrently \"yarn start:mock-server\" \"nightwatch\""
+    "test:e2e": "yarn build && concurrently \"yarn start:mock-server\" \"nightwatch\"",
+    "lint:ts": "tslint --project tsconfig.json --config tslint.json"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,10 @@
     "mini-css-extract-plugin": "^0.4.0",
     "nightwatch": "^0.9.21",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-eslint-rules": "^5.3.1",
+    "tslint-jsdoc-rules": "^0.1.2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "typescript": "^2.8.3",
