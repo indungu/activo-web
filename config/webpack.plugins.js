@@ -14,7 +14,9 @@ const namedModulesPlugin = new webpack.NamedModulesPlugin();
 const hotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin();
 const miniCssExtract = new miniCssExtractPlugin();
 const definePlugin = new webpack.DefinePlugin({
-  'process.env': dotEnv.config().parsed
+  'process.env': {
+    "NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'development')
+  }
 });
 
 module.exports = {
