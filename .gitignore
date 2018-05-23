@@ -6,4 +6,6 @@
 /coverage
 /dist
 yarn-error.log
+package-lock.json
 /reports
+src/**/**/__snapshots__/*.test.tsx.snap

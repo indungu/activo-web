@@ -11,7 +11,8 @@
     "test:e2e": "yarn build && concurrently \"yarn start:mock-server\" \"nightwatch\"",
     "lint:scss": "stylelint",
     "lint:ts": "tslint --project tsconfig.json --config tslint.json",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "test:unit": "jest -u"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/andela/activo-web#readme",
   "dependencies": {
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "concurrently": "^3.5.1",
     "dotenv": "^5.0.1",
     "node-sass": "^4.9.0",
@@ -32,6 +34,8 @@
     "webpack": "^4.8.3"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/jest": "^22.2.3",
     "awesome-typescript-loader": "^5.0.0",
     "babel-core": "^6.26.3",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -39,11 +43,16 @@
     "chromedriver": "^2.38.3",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.4",
     "mini-css-extract-plugin": "^0.4.0",
     "nightwatch": "^0.9.21",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
@@ -56,6 +65,7 @@
     "tslint-config-airbnb": "^5.9.2",
     "tslint-eslint-rules": "^5.3.1",
     "tslint-jsdoc-rules": "^0.1.2",
+    "ts-jest": "^22.4.6",
     "typescript": "^2.8.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack-cli": "^2.1.3",

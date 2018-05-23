@@ -1,14 +1,29 @@
 import * as React from 'react';
 import './AuthPage.scss';
 
-class App extends React.Component<{}> {
+class AuthPage extends React.Component<{}> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      errorMessage: ''
+    };
+  }
+
+  onChange = (event) => {
+    event.preventDefault();
+    this.setState({
+      isLoggedIn: true
+    });
+  }
+
   render() {
     return (
       <div>
-        <h1 className="h1-tag"> Typescript rendering </h1>
+        <button type="button" onClick={this.onChange}>Click Me!</button>
       </div>
     );
   }
 }
 
-export default App;
+export default AuthPage;
