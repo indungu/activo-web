@@ -1,27 +1,37 @@
+import { authService } from '../../utils/auth';
 import * as React from 'react';
+import { Redirect } from 'react-router-dom';
+import { IAuthPageProps, IAuthPageState } from './interface';
 import './AuthPage.scss';
 
-class AuthPage extends React.Component<{}> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-      errorMessage: ''
-    };
+class AuthPage extends React.Component <IAuthPageProps, IAuthPageState> {
+
+  state: IAuthPageState = {
+    errorMessage: null,
+  };
+
+  public componentDidMount(): void {
+    // TODO: ACTUALLY CHECK THAT THE ERROR EQUALS WHAT IS RETURNED FROM ANDELA-API
+    if (this.props.location.search) {
+      this.setState({
+        errorMessage: 'Authentication failed.',
+      });
+    }
   }
 
-  onChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      isLoggedIn: true
-    });
+  private handleLogin = (): void => {
+    window.location.replace('http://api-staging.andela.com/login?redirect_url=http://activo-dev.andela.com:3000');
   }
 
-  render() {
+  public render(): Object {
     return (
-      <div>
-        <button type="button" onClick={this.onChange}>Click Me!</button>
-      </div>
+      <React.Fragment>
+        {
+          authService.isAuthenticated()
+            ? <Redirect to="/dashboard" />
+            : <button type="button" onClick={this.handleLogin}>LOGIN WITH ANDELA AUTH</button>
+        }
+      </React.Fragment>
     );
   }
 }
