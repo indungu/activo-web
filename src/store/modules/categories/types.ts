@@ -1,0 +1,5 @@
+export const GET_CATEGORIES_SUCCESS = 'activo-web/dashboard/GET_CATEGORIES_SUCCESS';
+export type GET_CATEGORIES_SUCCESS = typeof GET_CATEGORIES_SUCCESS;
+
+export const GET_CATEGORIES_FAILURE = 'activo-web/dashboard/GET_CATEGORIES_FAILURE';
+export type GET_CATEGORIES_FAILURE = typeof GET_CATEGORIES_FAILURE;
