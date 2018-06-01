@@ -12,11 +12,17 @@ const htmlWebpack = new htmlWebpackPlugin({
 });
 const namedModulesPlugin = new webpack.NamedModulesPlugin();
 const hotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin();
-const miniCssExtract = new miniCssExtractPlugin({
-  filename: '[name].css'
+const miniCssExtract = new miniCssExtractPlugin();
+
+// stringify env variables
+const envs = dotEnv.config().parsed;
+const stringifiedEnvs = {};
+Object.keys(envs).forEach((envKey) => {
+  stringifiedEnvs[envKey] = JSON.stringify(envs[envKey]);
 });
+
 const definePlugin = new webpack.DefinePlugin({
-  'process.env': dotEnv.config().parsed
+  'process.env': stringifiedEnvs
 });
 
 module.exports = {

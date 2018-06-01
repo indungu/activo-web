@@ -4,7 +4,7 @@
   "description": "This web application serves as a convenient window for relevant stakeholders to record and monitor Andelan assets across all locations.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server --config config/webpack.dev.js --mode development",
+    "start:dev": "webpack-dev-server --config config/webpack.dev.js --mode development --host activo-dev.andela.com",
     "build": "webpack --config config/webpack.prod.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:mock-server": "http-server ./dist -p 1337",
@@ -35,6 +35,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "redux": "3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-immutable-state-invariant": "^2.1.0",

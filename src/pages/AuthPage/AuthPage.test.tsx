@@ -1,35 +1,35 @@
+// react libraries
 import * as React from 'react';
-import toJSON from 'enzyme-to-json';
+
+// third-party libraries
 import { shallow } from 'enzyme';
+import enzymeToJson from 'enzyme-to-json';
+
+// tslint:disable-next-line:import-name
 import AuthPage from './index';
 
 describe('Auth page', () => {
+  
+  const props = {
+    ANDELA_AUTH_HOST: 'TEST_AUTH_HOST',
+    AUTH_REDIRECT_URL: 'TEST_REDIRECT_URL',
+  };
+  
   it('should be rendered properly', () => {
-    const wrapper = shallow(<AuthPage />);
+    const wrapper = shallow(<AuthPage { ...props }/>);
 
     expect(wrapper.find('button').exists).toBeTruthy();
-    expect(toJSON(wrapper)).toMatchSnapshot();
+    expect(enzymeToJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should be rendered with the component default state values', () => {
-    const wrapper = shallow(<AuthPage />);
+  it('should redirect to andela authentication service  when the button is clicked', () => {
+    
+    // mock the replace function from jest jsdom
+    window.location.replace = jest.fn();
+    const wrapper = shallow(<AuthPage { ...props } />);
+    const redirectUrl = `${props.ANDELA_AUTH_HOST}/login?redirect_url=${props.AUTH_REDIRECT_URL}`;
 
-    wrapper.instance().setState({
-      isLoggedIn: false,
-      errorMessage: ''
-    });
-
-    expect(wrapper.instance().state).toEqual({
-      isLoggedIn: false,
-      errorMessage: ''
-    });
-  });
-
-  it('should call the onChange method when the button is clicked', () => {
-    const wrapper = shallow(<AuthPage />);
-
-    expect(wrapper.instance().state.isLoggedIn).toBeFalsy();
-    wrapper.find('button').simulate('click', { preventDefault: jest.fn() });
-    expect(wrapper.instance().state.isLoggedIn).toBeTruthy();
+    wrapper.find('button').simulate('click');
+    expect(window.location.replace).toHaveBeenCalledWith(redirectUrl);
   });
 });
