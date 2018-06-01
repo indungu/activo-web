@@ -1,15 +1,15 @@
+// react libraries
 import * as React from 'react';
 
+// components
 import AuthPage from 'pages/AuthPage';
-import Dashboard from 'pages/Dashboard';
+import DashboardPage from 'pages/DashboardPage';
 
 const App = () => {
   return (
-    <div>
-      <h1 className="h1-tag"> Typescript rendering </h1>
-      <AuthPage />
-      <Dashboard />
-    </div>
+    <React.Fragment>
+      <DashboardPage />
+    </React.Fragment>
   );
 };
 

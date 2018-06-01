@@ -1,0 +1,28 @@
+@import 'sass-rem';
+@import '../../assets/scss/variables';
+
+%generic-btn {
+  background-color: map-get($grey, 100);
+  width: rem(78px);
+  height: rem(28px);
+  margin-left: 2rem;
+  border: rem(1px) solid map-get($palette, primary);
+  border-radius: 2px;
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.03);
+  color: map-get($palette, primary);
+}
+
+.button {
+  &.small {
+    @extend %generic-btn;
+  }
+
+  &.regular {
+    @extend %generic-btn;
+    width: rem(122px);
+    height: rem(40px);
+    margin-left: auto;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

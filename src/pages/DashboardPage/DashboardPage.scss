@@ -1,0 +1,20 @@
+@import '~sass-rem';
+@import '../../assets/scss/variables';
+
+.container {
+  width: 91.67vw;
+  margin: 0 auto;
+  margin-top: rem(120px);
+
+  .header-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .asset-tag {
+    font-size: rem(24px);
+    font-weight: 300;
+    color: map-get($text-colors, header);
+    opacity: 0.8;
+  }
+}

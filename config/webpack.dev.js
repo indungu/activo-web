@@ -7,9 +7,12 @@ const {
 } = require('./webpack.plugins');
 
 module.exports = merge(config, {
+  output: {
+    filename: '[name].js'
+  },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, '../src'),
+    contentBase: path.resolve(__dirname, '../src/assets'),
     publicPath: 'http://activo.andela.com:3000/',
     hot: true,
     overlay: true,
@@ -22,5 +25,5 @@ module.exports = merge(config, {
       ignored: /node_modules/
     }
   },
-  plugins: [namedModulesPlugin, hotModuleReplacementPlugin],
+  plugins: [namedModulesPlugin, hotModuleReplacementPlugin]
 });

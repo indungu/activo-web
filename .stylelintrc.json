@@ -1,7 +1,9 @@
 {
   "extends": "stylelint-config-sass-guidelines",
-  "plugins": [
-    "stylelint-scss"
-  ],
-  "rules": {}
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "color-hex-case": "upper",
+    "order/properties-alphabetical-order": null,
+    "color-hex-length": "short"
+  }
 }

@@ -1,12 +1,5 @@
-$black: #000;
-$white: #fff;
-
-
-body {
-  background: $black;
-  color: $white;
-}
+@import '../../assets/scss/variables';
 
 .h1-tag {
-  color: $white;
+  color: map-get($grey , 100);
 }

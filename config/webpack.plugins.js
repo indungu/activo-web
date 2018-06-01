@@ -12,7 +12,9 @@ const htmlWebpack = new htmlWebpackPlugin({
 });
 const namedModulesPlugin = new webpack.NamedModulesPlugin();
 const hotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin();
-const miniCssExtract = new miniCssExtractPlugin();
+const miniCssExtract = new miniCssExtractPlugin({
+  filename: '[name].css'
+});
 const definePlugin = new webpack.DefinePlugin({
   'process.env': dotEnv.config().parsed
 });

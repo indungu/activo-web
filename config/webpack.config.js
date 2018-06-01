@@ -3,16 +3,20 @@ const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const {
   cleanWebpack,
   definePlugin,
-  htmlWebpack
+  htmlWebpack,
+  miniCssExtract
 } = require('./webpack.plugins');
 
 const isDevMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: path.join(__dirname, '..', 'src', 'index.tsx'),
+  entry: {
+    bundle: path.join(__dirname, '..', 'src', 'index.tsx'),
+    styleGlobals: path.join(__dirname, '..', 'src/assets/scss/globals.scss')
+  },
   output: {
     path: path.join(__dirname, '..', 'dist'),
-    filename: 'bundle.min.js',
+    filename: '[name].js',
     publicPath: '/'
   },
   resolve: {
@@ -27,7 +31,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
+        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader'
         }
@@ -58,5 +62,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpack, cleanWebpack, definePlugin]
+  plugins: [htmlWebpack, cleanWebpack, definePlugin, miniCssExtract]
 };
