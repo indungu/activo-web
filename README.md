@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/repos/5b11612164263d02a60010c7/maintainability"><img src="https://api.codeclimate.com/v1/badges/5cdf56c6e98065a2d063/maintainability" /></a>
+
 # Activo Web
 This web application serves as a convenient window for relevant stakeholders to record and monitor Andelan assets across all locations.
 
