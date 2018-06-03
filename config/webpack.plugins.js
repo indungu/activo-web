@@ -1,4 +1,5 @@
 const dotEnv = require('dotenv');
+
 // importing webpack dependencies
 const webpack = require('webpack');
 const cleanWebpackPlugin = require('clean-webpack-plugin');

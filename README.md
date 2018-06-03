@@ -45,7 +45,7 @@ This web application serves as a convenient window for relevant stakeholders to 
   - Add the following line to your `hosts` file:
 
     ```bash
-      127.0.0.1 activo-web.andela.com
+      127.0.0.1 activo-dev.andela.com
     ```
   - Save changes and quit the editor.
 8. To start the application run `yarn start:dev`

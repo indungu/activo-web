@@ -16,10 +16,23 @@
   src: url('../../assets/fonts/DINPRO-Bold.ttf');
 }
 
-html {
+html,
+body {
   background: rgb(246, 249, 252);
+  margin: 0;
 }
 
 * {
   font-family: 'DinPro';
+}
+
+.container {
+  width: 91.67%;
+  height: 100%;
+  margin: 0 auto;
+
+  &.flex-vertical {
+    display: flex;
+    flex-direction: column;
+  }
 }

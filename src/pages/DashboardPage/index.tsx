@@ -10,6 +10,7 @@ import './DashboardPage.scss';
 // components
 import AssetCategoryCard from 'components/AssetCategoryCard';
 import Button from 'components/Button/Button';
+import NavBar from 'components/NavBar';
 
 // interfaces
 import { DashboardProps, DashboardState } from './interfaces';
@@ -27,28 +28,26 @@ export class DashboardPage extends React.Component<
 
   render() {
     return (
-      <React.Fragment>
-        <div className="container">
-          <div className="header-row">
-            <h2 className="asset-tag">ASSET CATEGORIES</h2>
-            <Button size="small" name="Export" icon="images/Fill.png" />
-            <Button name="Add Asset" />
-          </div>
-          
-          <div className="asset-category-container">
-            {
-              this.props.categories.map(category => (
-                <AssetCategoryCard
-                  key={category.id}
-                  name={category.name}
-                  count={category.count}
-                />
-                )
-              )
-            }
-          </div>
+      <NavBar>
+        <div className="header-row">
+          <h2 className="asset-tag">ASSET CATEGORIES</h2>
+          <Button size="small" name="Export" icon="images/Fill.png" />
+          <Button name="Add Asset" />
         </div>
-      </React.Fragment>
+        
+        <div className="asset-category-container">
+          {
+            this.props.categories.map(category => (
+              <AssetCategoryCard
+                key={category.id}
+                name={category.name}
+                count={category.count}
+              />
+              )
+            )
+          }
+        </div>
+      </NavBar>
     );
   }
 }

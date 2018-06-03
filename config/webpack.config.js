@@ -1,5 +1,4 @@
 const path = require('path');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const {
   cleanWebpack,
   definePlugin,
@@ -39,7 +38,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          isDevMode ? 'style-loader' : miniCssExtractPlugin.loader,
+          isDevMode ? 'style-loader' : miniCssExtract.loader,
           {
             loader: 'css-loader',
             options: {
