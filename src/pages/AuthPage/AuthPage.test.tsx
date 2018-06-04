@@ -1,9 +1,12 @@
 // react libraries
 import * as React from 'react';
+import { Redirect } from 'react-router-dom';
 
 // third-party libraries
 import { shallow } from 'enzyme';
 import enzymeToJson from 'enzyme-to-json';
+
+import * as Cookies from 'cookies-js';
 
 // tslint:disable-next-line:import-name
 import AuthPage from './index';
@@ -29,7 +32,15 @@ describe('Auth page', () => {
     const wrapper = shallow(<AuthPage { ...props } />);
     const redirectUrl = `${props.ANDELA_AUTH_HOST}/login?redirect_url=${props.AUTH_REDIRECT_URL}`;
 
-    wrapper.find('button').simulate('click');
+    wrapper.find('.login-btn-container').simulate('click');
     expect(window.location.replace).toHaveBeenCalledWith(redirectUrl);
+  });
+
+  it('redirects user to dashboard if user is logged in', () => {
+    const authToken = 'SOME_RANDOM_TOKEN';
+    Cookies.set('jwt-token', authToken);
+
+    const wrapper = shallow(<AuthPage { ...props } />);
+    expect(wrapper.find(Redirect).length).toBe(1);
   });
 });
