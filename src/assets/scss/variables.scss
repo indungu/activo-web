@@ -2,6 +2,7 @@ $palette: (
   primary: #3359DB,
   secondary: #FFAF30,
   light: #2956E3,
+  lighter: #6487FF,
   dark: #3359DB,
   danger: red,
 );
@@ -25,3 +26,5 @@ $grey: (
   700: #333E44,
   800: #323C47
 );
+
+$boxshadow: 0.0625rem 0.3125rem 1rem 0 rgba(0, 0, 0, 0.19);

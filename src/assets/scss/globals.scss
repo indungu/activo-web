@@ -24,6 +24,10 @@ body {
 
 * {
   font-family: 'DinPro';
+
+  &:active {
+    outline: none;
+  }
 }
 
 .container {

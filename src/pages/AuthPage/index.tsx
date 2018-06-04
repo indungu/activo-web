@@ -27,8 +27,24 @@ class AuthPage extends React.Component<IAuthProps> {
 
   render() {
     return (
-      <div>
-        <button type="button" onClick={this.handleLogin}>Login Andela Auth</button>
+      <div className="auth-container">
+        <div className="assets">
+          <div className="auth-logo">Activo</div>
+          <div className="jumbotron">
+            <h1>Smart Asset Management <br />for your business</h1>
+            <div className="login-btn-container" onClick={this.handleLogin}>
+              <button className="google-image">
+                <img src="images/google-logo.png" />
+              </button>
+              <button className="login-button">
+                LOGIN WITH GOOGLE
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="macbook-image">
+          <img src="images/macbook.svg" />
+        </div>
       </div>
     );
   }

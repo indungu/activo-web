@@ -2,7 +2,7 @@
 
 .navigation-bar {
   position: relative;
-  background-color: map-get($palette, 100);
+  background-color: map-get($grey, 100);
   width: 90rem;
   height: 8.625rem;
   box-shadow: 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.1);
