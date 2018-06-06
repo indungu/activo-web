@@ -83,6 +83,7 @@
       "check-whitespace"
     ],
     "radix": true,
+    "variable-name": [false],
     "trailing-comma": [
       true,
       {
