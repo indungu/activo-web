@@ -1,19 +1,22 @@
 // react libraries
 import * as React from 'react';
 
+// Third party libraries
 import { Redirect } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 // styles
 import './AuthPage.scss';
 
 // interface
-import { IAuthProps } from './interfaces';
+import { AuthProps } from './interfaces';
 
 import { authService } from '../../utils/auth';
 
-class AuthPage extends React.Component<IAuthProps> {
+class AuthPage extends React.Component<AuthProps> {
   private ANDELA_AUTH_HOST = process.env.ANDELA_AUTH_HOST;
   private AUTH_REDIRECT_URL = process.env.AUTH_REDIRECT_URL;
+  private errorMessage;
 
   constructor(props) {
     super(props);
@@ -28,8 +31,11 @@ class AuthPage extends React.Component<IAuthProps> {
   handleLogin = () => {
     window.location.replace(`${this.ANDELA_AUTH_HOST}/login?redirect_url=${this.AUTH_REDIRECT_URL}`);
   }
-
   render() {
+    if (this.props.location.search === '?error=failed+to+create+user+token') {
+      this.errorMessage = 'Login unsuccessful. Please login with a valid Andela account';
+      toast.error(this.errorMessage);
+    }
     return (
       <React.Fragment>
         {
@@ -55,6 +61,7 @@ class AuthPage extends React.Component<IAuthProps> {
               </div>
             </div>
         }
+        <ToastContainer autoClose={false}/>
       </React.Fragment>
     );
   }

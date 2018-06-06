@@ -12,10 +12,12 @@ import * as Cookies from 'cookies-js';
 import AuthPage from './index';
 
 describe('Auth page', () => {
-  
   const props = {
     ANDELA_AUTH_HOST: 'TEST_AUTH_HOST',
     AUTH_REDIRECT_URL: 'TEST_REDIRECT_URL',
+    location: {
+      search: '',
+    },
   };
   
   it('should be rendered properly', () => {
@@ -42,5 +44,15 @@ describe('Auth page', () => {
 
     const wrapper = shallow(<AuthPage { ...props } />);
     expect(wrapper.find(Redirect).length).toBe(1);
+  });
+
+  it('it shows an error message when authentication fails', () => {
+    props.location.search = '?error=failed+to+create+user+token';
+    const wrapper = shallow(<AuthPage { ...props } />);
+    expect(wrapper.instance()).toHaveProperty(
+      'errorMessage', 
+      'Login unsuccessful. Please login with a valid Andela account'
+    );
+    expect(wrapper.find('#Toastify__toast-body').exists).toBeTruthy();
   });
 });
