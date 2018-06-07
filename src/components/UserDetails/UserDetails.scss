@@ -1,0 +1,17 @@
+@import '../../assets/scss/variables';
+
+.regular {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+}
+
+.profile-name {
+  width: 6.3125rem;
+  height: 1.4375rem;
+  margin: 0 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 100;
+  line-height: 1.4375rem;
+  color: map-get($text-colors, user-name);
+}

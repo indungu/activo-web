@@ -41,7 +41,7 @@ export const getAssetCategories = dispatch => {
       {
         id: 1,
         name: 'Macs',
-        count: 10
+        count: 10,
       }
     ]);
   }).then((categories: Category[]) => {
@@ -54,40 +54,40 @@ const categoriesInitialState = {
     {
       id: 1,
       name: 'Apple Tv',
-      count: 16
+      count: 16,
     },
     {
       id: 2,
       name: 'Chairs',
-      count: 2839
+      count: 2839,
     },
     {
       id: 3,
       name: 'Chromebooks',
-      count: 121
+      count: 121,
     },
     {
       id: 4,
       name: 'Macbooks',
-      count: 438
+      count: 438,
     },
     {
       id: 5,
       name: 'Monitors',
-      count: 293
+      count: 293,
     },
     {
       id: 6,
       name: 'USB Dongles',
-      count: 382
+      count: 382,
     },
     {
       id: 7,
       name: 'White Board',
-      count: 28
-    }
+      count: 28,
+    },
   ],
-  isLoading: false
+  isLoading: false,
 };
 
 // reducer
@@ -102,7 +102,7 @@ export const reducer = (state = categoriesInitialState, action) => {
   switch (action.type) {
     case types.GET_CATEGORIES_SUCCESS:
       return {
-        ...state
+        ...state,
       };
     default:
       return state;

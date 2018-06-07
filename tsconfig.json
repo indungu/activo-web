@@ -12,7 +12,8 @@
     "paths": {
       "pages/*": ["src/pages/*"],
       "components/*": ["src/components/*"],
-      "modules/*": ["src/store/modules/*"]
+      "modules/*": ["src/store/modules/*"],
+      "utils/*": ["src/utils/*"]
     }
   }
 }

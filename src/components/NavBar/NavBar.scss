@@ -77,22 +77,6 @@
     align-items: center;
   }
 
-  .profile-pic {
-    width: 2.125rem;
-    height: 2.125rem;
-  }
-
-  .profile-name {
-    width: 6.3125rem;
-    height: 1.4375rem;
-    margin: 0 0.625rem;
-    font-family: Dinpro;
-    font-size: 1.125rem;
-    font-weight: 100;
-    line-height: 1.4375rem;
-    color: map-get($text-colors, user-name);
-  }
-
   .drop-down-icon {
     color: map-get($grey, 400);
   }

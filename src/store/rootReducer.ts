@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 
 // reducers
-import categories from './modules/categories';
-import assets from './modules/assets';
+import assets from 'modules/assets';
+import auth from 'modules/auth';
+import categories from 'modules/categories';
 
 const rootReducer = combineReducers({
   assets,
-  categories
+  auth,
+  categories,
 });
 
 export default rootReducer;

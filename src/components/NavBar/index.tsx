@@ -1,11 +1,24 @@
 // react libraries
 import * as React from 'react';
 
+// third-party libraries
+import { connect } from 'react-redux';
+
 // styles
 import './NavBar.scss';
 
-class NavBar extends React.Component<{}> {
+// components
+import UserDetails from '../UserDetails';
+
+// interfaces
+import { NavbarProps } from './interfaces';
+
+// helper functions
+import truncateName from '../../utils/helpers/truncateName';
+
+export class NavBar extends React.Component<NavbarProps, {}> {
   render() {
+    const { userDetails } = this.props;
     return (
       <React.Fragment>
         <div className="navigation-bar">
@@ -25,8 +38,13 @@ class NavBar extends React.Component<{}> {
                 <img src="images/Group.svg" className="notification-bell" />
 
                 <div className="profile-details">
-                  <img src="images/upic.svg" className="profile-pic" />
-                  <p className="profile-name">Silm Momoh</p>
+                  <UserDetails
+                    icon={userDetails.picture}
+                    fullName={ truncateName(userDetails.name) }
+                    usernameClass="profile-name"
+                    iconSize="regular"
+                    title={userDetails.name}
+                  />
                   <i className="drop-down-icon">&#9662;</i>
                 </div>
               </div>
@@ -60,4 +78,8 @@ class NavBar extends React.Component<{}> {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  userDetails: state.auth.userDetail.UserInfo,
+});
+
+export default connect(mapStateToProps)(NavBar);

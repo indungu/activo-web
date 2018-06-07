@@ -1,5 +1,14 @@
 import * as Cookie from 'cookies-js';
+import * as jwtDecode from 'jwt-decode';
 
 export const authService = {
-  isAuthenticated: (): boolean => Cookie.get('jwt-token') ? true : false,
+  getToken() {
+    return Cookie.get('jwt-token');
+  },
+  isAuthenticated() {
+    return this.getToken() ? true : false;
+  },
+  getUser() {
+    return this.getToken() ? jwtDecode(Cookie.get('jwt-token')) : null;
+  },
 };
