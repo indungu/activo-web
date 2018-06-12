@@ -4,13 +4,19 @@ import * as ReactDOM from 'react-dom';
 
 // third party packages
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import Routes from './routes';
+// components
+import App from './App';
+
+// helper functions
 import store from './store';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

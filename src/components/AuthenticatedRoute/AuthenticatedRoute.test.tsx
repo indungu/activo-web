@@ -1,6 +1,6 @@
 // react libraries
 import * as React from 'react';
-import { MemoryRouter, Route } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 // third-party libraries
 import * as Cookies from 'cookies-js';
@@ -28,9 +28,7 @@ describe('The AuthenticatedRoute component', () => {
     Cookies.expire('jwt-token');
 
     const wrapper = shallow(<AuthenticatedRoute component={TestComponent} />);
-    const route = wrapper.find(Route);
-    const redirect = route.props().render();
-
-    expect(redirect.props.to).toBe('/');
+    
+    expect(wrapper).toMatchSnapshot();
   });
 });

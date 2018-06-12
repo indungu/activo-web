@@ -1,4 +1,5 @@
 @import '../../assets/scss/variables';
+@import 'sass-rem';
 
 .navigation-bar {
   position: relative;
@@ -27,7 +28,6 @@
   }
 
   .logo-name {
-    font-family: Dinpro;
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 2.375rem;
@@ -113,32 +113,39 @@
   .overview-icon {
     width: 20px;
     height: 20px;
-    margin-bottom: -3px;
+    margin: rem(10px) 0 rem(-3px) 0;
     padding-right: 9px;
   }
 
   .settings-icon {	
     height: 22px;
     width: 22px;
-    margin-bottom: -3px;
+    margin: rem(10px) 0 rem(-3px) 0;
     padding-right: 9px;
   } 
-}
 
-.bottom-navlist {
-  li {
+  &__menu-item {
     display: flex;
     align-items: center;
-  }
 
-  a {
-    width: 4.1875rem;
-    font-family: Dinpro;
-    font-size: 1.125rem;
-    font-weight: 300;
-    line-height: 2.5rem;
-    text-decoration: none;
-    color: map-get($grey, 400);
+    .content {
+      display: inline-flex;
+      width: 4.1875rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 2.5rem;
+      text-decoration: none;
+      color: map-get($grey, 400);
+    }
+
+    &--active {
+      width: 6.5rem;
+      border-bottom: 3px solid map-get($text-colors, navbar-active);
+    }
+
+    &--active .content {
+      color: map-get($text-colors, navbar-active);
+    }
   }
 }
 

@@ -70,6 +70,10 @@
     "@types/cheerio" "*"
     "@types/react" "*"
 
+"@types/history@*":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.2.tgz#12cfaba693ba20f114ed5765467ff25fdf67ddb0"
+
 "@types/jest@^22.2.3":
   version "22.2.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.3.tgz#0157c0316dc3722c43a7b71de3fdf3acbccef10d"
@@ -91,6 +95,21 @@
   dependencies:
     "@types/react" "*"
     redux "^4.0.0"
+
+"@types/react-router-dom@^4.2.7":
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.2.7.tgz#9d36bfe175f916dd8d7b6b0237feed6cce376b4c"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "4.0.26"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.26.tgz#4489c873642baa633014294a6d0a290001ba9860"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.3.14":
   version "16.3.14"
@@ -7620,8 +7639,8 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.3.2"
 
 react-toastify@^4.0.2:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-4.1.0.tgz#0d14d3cf36523ade27a2edd5323a9db373dce4c5"
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-4.0.2.tgz#da1b9bbfe5b68a85ea820379bdc79c6491f1d4cf"
   dependencies:
     classnames "^2.2.5"
     prop-types "^15.6.0"

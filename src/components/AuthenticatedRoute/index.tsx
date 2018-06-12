@@ -6,8 +6,10 @@ import { Redirect, Route } from 'react-router-dom';
 import { authService } from '../../utils/auth';
 
 const AuthenticatedRoute = ({ component: Component, ...rest }) => ((
-  <Route { ...rest }
-    render={props => authService.isAuthenticated() ? <Component { ...props } /> : <Redirect to="/" /> } />
+  <div className="dynamic-content container">
+    <Route { ...rest }
+    render={props => authService.isAuthenticated() ? <Component /> : <Redirect to="/" /> } />
+  </div>
 ));
 
 export default AuthenticatedRoute;

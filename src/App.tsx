@@ -1,16 +1,19 @@
 // react libraries
 import * as React from 'react';
+import { withRouter } from 'react-router-dom';
 
 // components
-import AuthPage from 'pages/AuthPage';
-import DashboardPage from 'pages/DashboardPage';
+import NavBar from 'components/NavBar';
+import Routes from './routes';
 
-const App = () => {
+// tslint:disable-next-line:variable-name
+const App = ({ location }) => {
   return (
     <React.Fragment>
-      <DashboardPage />
+      {location.pathname !== '/' && <NavBar location={location} />}
+      <Routes />
     </React.Fragment>
   );
 };
 
-export default App;
+export default withRouter(App);

@@ -10,7 +10,6 @@ import './DashboardPage.scss';
 // components
 import AssetCategoryCard from 'components/AssetCategoryCard';
 import Button from 'components/Button/Button';
-import NavBar from 'components/NavBar';
 
 // interfaces
 import { DashboardProps, DashboardState } from './interfaces';
@@ -28,13 +27,13 @@ export class DashboardPage extends React.Component<
 
   render() {
     return (
-      <NavBar>
+      <React.Fragment>
         <div className="header-row">
           <h2 className="asset-tag">ASSET CATEGORIES</h2>
           <Button size="small" name="Export" icon="images/Fill.png" />
           <Button name="Add Asset" />
         </div>
-        
+
         <div className="asset-category-container">
           {
             this.props.categories.map(category => (
@@ -43,11 +42,10 @@ export class DashboardPage extends React.Component<
                 name={category.name}
                 count={category.count}
               />
-              )
-            )
+            ))
           }
         </div>
-      </NavBar>
+      </React.Fragment>
     );
   }
 }

@@ -3,6 +3,7 @@ import * as React from 'react';
 
 // third-party libraries
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // styles
 import './NavBar.scss';
@@ -11,12 +12,22 @@ import './NavBar.scss';
 import UserDetails from '../UserDetails';
 
 // interfaces
-import { NavbarProps } from './interfaces';
+import { NavBarProps } from './interfaces';
 
 // helper functions
 import truncateName from '../../utils/helpers/truncateName';
 
-export class NavBar extends React.Component<NavbarProps, {}> {
+export class NavBar extends React.Component<NavBarProps, {}> {
+  /**
+   * This method gets the pathname of the active page
+   * 
+   * @param {string} pathname
+   * @returns {string} A string with the pathname of the active page
+   */
+  private isActive (pathname: string): boolean {
+    return this.props.location.pathname === pathname;
+  }
+
   render() {
     const { userDetails } = this.props;
     return (
@@ -54,24 +65,28 @@ export class NavBar extends React.Component<NavbarProps, {}> {
 
             <nav className="bottom-nav">
               <ul className="bottom-navlist">
-                <li>
-                  <img src="images/overview.svg" className="overview-icon" />
-                  <a href="#">
+                <li className={`${this.isActive('/dashboard') 
+                  ? 'bottom-nav__menu-item--active bottom-nav__menu-item' 
+                  : 'bottom-nav__menu-item'}`}>
+                  <Link className="content" to="/dashboard">
+                    <img src={`images/overview${this.isActive('/dashboard') ?
+                      'Active' : ''}.svg`} className="overview-icon" />
                     Overview
-                  </a>
+                  </Link>
                 </li>
-                <li className="active">
-                    <img src="images/settings.svg" className="overview-icon" />
-                  <a href="#">
+
+                <li className={`${this.isActive('/settings') 
+                  ? 'bottom-nav__menu-item--active bottom-nav__menu-item' 
+                  : 'bottom-nav__menu-item'}`}>
+                  <Link className="content" to="/settings">
+                    <img src={`images/settings${this.isActive('/settings') ?
+                      'Active' : ''}.svg`} className="settings-icon" />
                     Settings
-                  </a>
-                </li>
+                  </Link>
+                </li>     
               </ul>
             </nav>
           </div>
-        </div>
-        <div className="dynamic-content container">
-          {this.props.children}
         </div>
       </React.Fragment>
     );
