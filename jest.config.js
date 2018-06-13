@@ -1,7 +1,12 @@
 module.exports = {
   'roots': [
-  '<rootDir>/src'
+    '<rootDir>/src'
   ],
+  "globals": {
+    "ts-jest": {
+      "useBabelrc": true
+    }
+  },
   'transform': {
     '^.+\\.tsx?$': 'ts-jest'
   },
@@ -20,6 +25,15 @@ module.exports = {
   },
   'collectCoverage': true,
   'collectCoverageFrom': ["src/**/*.tsx"],
+  'coverageThreshold': {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": -10
+    }
+  },
+  'coveragePathIgnorePatterns': ['/node_modules', '<rootDir>/src/index.tsx'],
   'snapshotSerializers': ['enzyme-to-json/serializer'],
   'setupTestFrameworkScriptFile': '<rootDir>/src/setupEnzyme.ts',
 }

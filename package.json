@@ -11,8 +11,9 @@
     "test:e2e": "yarn build && concurrently \"yarn start:mock-server\" \"nightwatch\"",
     "lint:scss": "stylelint",
     "lint:ts": "tslint --project tsconfig.json --config tslint.json",
-    "precommit": "lint-staged",
-    "test:unit": "jest -u"
+    "precommit": "lint-staged && yarn test:commit",
+    "test:unit": "jest -u",
+    "test:commit": "yarn test:unit --coverage"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,7 @@
     "awesome-typescript-loader": "^5.0.0",
     "babel-core": "^6.26.3",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-env": "^1.7.0",
     "chromedriver": "^2.38.3",
     "clean-webpack-plugin": "^0.1.19",

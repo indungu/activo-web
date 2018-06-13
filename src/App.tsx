@@ -7,13 +7,11 @@ import NavBar from 'components/NavBar';
 import Routes from './routes';
 
 // tslint:disable-next-line:variable-name
-const App = ({ location }) => {
-  return (
-    <React.Fragment>
+export const App = ({ location }) => ((
+  <React.Fragment>
       {location.pathname !== '/' && <NavBar location={location} />}
       <Routes />
-    </React.Fragment>
-  );
-};
+  </React.Fragment>
+));
 
 export default withRouter(App);

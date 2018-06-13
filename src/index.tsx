@@ -12,7 +12,7 @@ import App from './App';
 // helper functions
 import store from './store';
 
-ReactDOM.render(
+export const app = ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
@@ -20,3 +20,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+export default app;

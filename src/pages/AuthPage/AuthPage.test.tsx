@@ -3,10 +3,8 @@ import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 
 // third-party libraries
-import { shallow } from 'enzyme';
-import enzymeToJson from 'enzyme-to-json';
-
 import * as Cookies from 'cookies-js';
+import { shallow } from 'enzyme';
 
 // tslint:disable-next-line:import-name
 import AuthPage from './index';
@@ -24,7 +22,7 @@ describe('Auth page', () => {
     const wrapper = shallow(<AuthPage { ...props }/>);
 
     expect(wrapper.find('button').exists).toBeTruthy();
-    expect(enzymeToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should redirect to andela authentication service  when the button is clicked', () => {

@@ -48,8 +48,7 @@
     ],
     "member-ordering": [
       true,
-      "static-before-instance",
-      "variables-before-functions"
+      "static-before-instance"
     ],
     "no-arg": true,
     "no-bitwise": true,
