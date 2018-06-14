@@ -11,4 +11,7 @@ export const authService = {
   getUser() {
     return this.getToken() ? jwtDecode(Cookie.get('jwt-token')) : null;
   },
+  logoutUser() {
+    Cookie.expire('jwt-token', { path: '/', domain: '.andela.com' });
+  },
 };

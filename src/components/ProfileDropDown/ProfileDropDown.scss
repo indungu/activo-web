@@ -1,0 +1,33 @@
+@import '~sass-rem';
+@import '../../assets/scss/variables.scss';
+
+.dropdown-menu {
+  position: absolute;
+  margin-left: rem(40px);
+  margin-top: rem(30px);
+
+  &__item {
+    position: absolute;
+    z-index: 10;
+    background-color: map-get($grey, 900);
+    width: rem(70px);
+    padding: rem(20px);
+    border: solid 0.05rem map-get($grey, 200);
+    font-size: 0.875rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 0.2rem;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.1);
+    transition:height 2000ms ease-in;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: map-get($grey, 600)
+  }
+
+  &__link:hover {
+    color: map-get($palette, primary);
+  }
+}

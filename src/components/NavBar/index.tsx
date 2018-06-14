@@ -9,15 +9,20 @@ import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
 // components
+import ProfileDropDown from '../ProfileDropDown';
 import UserDetails from '../UserDetails';
 
 // interfaces
 import { NavBarProps } from './interfaces';
 
 // helper functions
-import truncateName from '../../utils/helpers/truncateName';
+import truncateName from 'utils/helpers/truncateName';
 
 export class NavBar extends React.Component<NavBarProps, {}> {
+  state = {
+    dropDownHidden: true,
+  };
+
   /**
    * This method gets the pathname of the active page
    * 
@@ -26,6 +31,16 @@ export class NavBar extends React.Component<NavBarProps, {}> {
    */
   private isActive (pathname: string): boolean {
     return this.props.location.pathname === pathname;
+  }
+
+  /**
+   * This handler changes the state of the dropDownHidden key
+   * in the state object.
+   * 
+   * @returns {object} An updated version of the un-mutated state
+   */
+  toggleDropDownState = () => {
+    this.setState({ dropDownHidden: !this.state.dropDownHidden });
   }
 
   render() {
@@ -51,12 +66,13 @@ export class NavBar extends React.Component<NavBarProps, {}> {
                 <div className="profile-details">
                   <UserDetails
                     icon={userDetails.picture}
-                    fullName={ truncateName(userDetails.name) }
+                    fullName={truncateName(userDetails.name)}
                     usernameClass="profile-name"
                     iconSize="regular"
                     title={userDetails.name}
                   />
-                  <i className="drop-down-icon">&#9662;</i>
+                  <i onClick={this.toggleDropDownState} className="dropdown-icon">&#9662;</i>
+                  <ProfileDropDown hidden={this.state.dropDownHidden} />
                 </div>
               </div>
             </div>

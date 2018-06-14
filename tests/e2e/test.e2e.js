@@ -11,7 +11,7 @@ export default {
       .pause(1000);
     browser.expect.element('body').to.be.present.before(1000);
     browser.expect.element('h1').to.be.present.before(1000);
-    browser.expect.element('h1').to.have.attribute('class').which.contains('h1-tag');
+    browser.assert.cssClassPresent('button', 'google-image');
     browser.pause(500);
     browser.end();
   }

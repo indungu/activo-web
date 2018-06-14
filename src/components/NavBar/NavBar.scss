@@ -77,7 +77,8 @@
     align-items: center;
   }
 
-  .drop-down-icon {
+  .dropdown-icon {
+    cursor: pointer;
     color: map-get($grey, 400);
   }
 }
@@ -102,7 +103,7 @@
   padding: 0;
 
   .bottom-navlist {
-    width: 300px;
+    width: rem(300px);
     display: flex;
     justify-content: space-around;
     margin: 0;
@@ -111,17 +112,17 @@
   }
 
   .overview-icon {
-    width: 20px;
-    height: 20px;
+    width: rem(20px);
+    height: rem(20px);
     margin: rem(10px) 0 rem(-3px) 0;
-    padding-right: 9px;
+    padding-right: rem(9px);
   }
 
-  .settings-icon {	
-    height: 22px;
-    width: 22px;
+  .settings-icon {
+    width: rem(22px);
+    height: rem(22px);
     margin: rem(10px) 0 rem(-3px) 0;
-    padding-right: 9px;
+    padding-right: rem(9px);
   } 
 
   &__menu-item {
