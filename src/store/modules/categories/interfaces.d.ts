@@ -1,4 +1,4 @@
-import { GET_CATEGORIES_SUCCESS, GET_CATEGORIES_FAILURE } from './types';
+import { GET_CATEGORIES_FAILURE, GET_CATEGORIES_SUCCESS } from './types';
 
 export interface CategoriesActionSuccess {
   categories: Category[];
@@ -9,8 +9,8 @@ export interface CategoriesActionFailure {
   type: GET_CATEGORIES_FAILURE;
 }
 
-interface Category {
-  id: string,
-  name: string,
-  count: number
+export interface Category {
+  id: string;
+  name: string;
+  count: number;
 }

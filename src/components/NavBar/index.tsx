@@ -36,17 +36,17 @@ export class NavBar extends React.Component<NavBarProps, {}> {
           <div className="container flex-vertical">
             <div className="top-nav">
               <div className="left-navbar">
-                <img src="images/Logo.svg" className="logo" />
+                <img src="/images/Logo.svg" className="logo" />
                 <p className="logo-name">ACTIVO</p>
               </div>
 
               <div className="right-navbar">
                 <div className="search-bar">
                   <input type="text" className="search-input" />
-                  <img className="search-icon" src="images/Loupe.svg" />
+                  <img className="search-icon" src="/images/Loupe.svg" />
                 </div>
 
-                <img src="images/Group.svg" className="notification-bell" />
+                <img src="/images/Group.svg" className="notification-bell" />
 
                 <div className="profile-details">
                   <UserDetails
@@ -69,7 +69,7 @@ export class NavBar extends React.Component<NavBarProps, {}> {
                   ? 'bottom-nav__menu-item--active bottom-nav__menu-item' 
                   : 'bottom-nav__menu-item'}`}>
                   <Link className="content" to="/dashboard">
-                    <img src={`images/overview${this.isActive('/dashboard') ?
+                    <img src={`/images/overview${this.isActive('/dashboard') ?
                       'Active' : ''}.svg`} className="overview-icon" />
                     Overview
                   </Link>
@@ -79,7 +79,7 @@ export class NavBar extends React.Component<NavBarProps, {}> {
                   ? 'bottom-nav__menu-item--active bottom-nav__menu-item' 
                   : 'bottom-nav__menu-item'}`}>
                   <Link className="content" to="/settings">
-                    <img src={`images/settings${this.isActive('/settings') ?
+                    <img src={`/images/settings${this.isActive('/settings') ?
                       'Active' : ''}.svg`} className="settings-icon" />
                     Settings
                   </Link>

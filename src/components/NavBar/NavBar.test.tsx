@@ -33,7 +33,7 @@ describe('NavBar component', () => {
     const overviewImage = overviewListItem.find('img');
 
     expect(wrapper).toMatchSnapshot();
-    expect(overviewImage.props().src).toBe('images/overviewActive.svg');
+    expect(overviewImage.props().src).toBe('/images/overviewActive.svg');
   });
 
   it('should display active settings tab if the pathname is /settings', () => {
@@ -44,7 +44,7 @@ describe('NavBar component', () => {
     const settingsImage = settingsListItem.find('img');
     
     expect(wrapper).toMatchSnapshot();
-    expect(settingsImage.props().src).toBe('images/settingsActive.svg');
+    expect(settingsImage.props().src).toBe('/images/settingsActive.svg');
   });
 
   it('should display active overview tab if the pathname is /dashboard', () => {
@@ -55,7 +55,7 @@ describe('NavBar component', () => {
     const overviewImage = overviewListItem.find('img');
 
     expect(wrapper).toMatchSnapshot();
-    expect(overviewImage.props().src).toBe('images/overviewActive.svg');
+    expect(overviewImage.props().src).toBe('/images/overviewActive.svg');
   });
 
   it('should display active settings tab if the pathname is /settings', () => {
@@ -66,6 +66,6 @@ describe('NavBar component', () => {
     const settingsImage = settingsListItem.find('img');
     
     expect(wrapper).toMatchSnapshot();
-    expect(settingsImage.props().src).toBe('images/settingsActive.svg');
+    expect(settingsImage.props().src).toBe('/images/settingsActive.svg');
   });
 });

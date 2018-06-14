@@ -5,7 +5,7 @@ import * as React from 'react';
 import './Button.scss';
 
 // interfaces
-import { ButtonProps } from './interface';
+import { ButtonProps } from './interfaces';
 
 const Button = (props: ButtonProps) => {
   let { size, type, icon, name } = props;

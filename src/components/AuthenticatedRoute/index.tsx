@@ -8,7 +8,7 @@ import { authService } from '../../utils/auth';
 const AuthenticatedRoute = ({ component: Component, ...rest }) => ((
   <div className="dynamic-content container">
     <Route { ...rest }
-    render={props => authService.isAuthenticated() ? <Component /> : <Redirect to="/" /> } />
+    render={props => authService.isAuthenticated() ? <Component {...props} /> : <Redirect to="/" /> } />
   </div>
 ));
 

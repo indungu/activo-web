@@ -1,4 +1,4 @@
-import * as types from './types';
+import { GET_ASSETS_FAILURE, GET_ASSETS_SUCCESS } from './types';
 
 import { Asset, AssetsActionFailure, AssetsActionSuccess } from './interfaces';
 
@@ -10,7 +10,7 @@ import { Asset, AssetsActionFailure, AssetsActionSuccess } from './interfaces';
  * @returns {AssetsActionSuccess}
  */
 export const getAssetsSuccess = (assets: Asset[]): AssetsActionSuccess => {
-  return { assets, type: types.GET_ASSETS_SUCCESS };
+  return { assets, type: GET_ASSETS_SUCCESS };
 };
 
 /**
@@ -19,7 +19,7 @@ export const getAssetsSuccess = (assets: Asset[]): AssetsActionSuccess => {
  * @returns {AssetsActionFailure}
  */
 export const getAssetsFailure = (): AssetsActionFailure => {
-  return { type: types.GET_ASSETS_FAILURE };
+  return { type: GET_ASSETS_FAILURE };
 };
 
 /**
@@ -28,13 +28,20 @@ export const getAssetsFailure = (): AssetsActionFailure => {
  * @param {any} dispatch
  * @returns {object} action type and payload
  */
-export const getAssets = (dispatch) => {
+export const getAssets = id => (dispatch)  => {
   // TODO: make a call to get the data from the backend
   return new Promise((resolve, reject) => {
-    resolve([{
-      id: 1,
-      name: 'Macs',
-    }]);
+    resolve([
+      {
+        assignee: 'Yaba',
+        assetTag: 'AND/WEYA/WYRUHS',
+        categoryId: 'string',
+        date: '07 June 2018',
+        id: 1,
+        serialNumber: 'C0ABDJFGSKSJK',
+        warranty: 'Expired',
+      },
+    ]);
   })
   .then((assets: Asset[]) => {
     dispatch(getAssetsSuccess(assets));
@@ -42,12 +49,7 @@ export const getAssets = (dispatch) => {
 };
 
 const assetsInitialState = {
-  data: [
-    {
-      id: 1,
-      name: 'mac',
-    },
-  ],
+  data: [],
   isLoading: false,
 };
 
@@ -61,9 +63,9 @@ const assetsInitialState = {
  */
 export const reducer = (state = assetsInitialState, action) => {
   switch (action.type) {
-    case types.GET_ASSETS_SUCCESS:
+    case GET_ASSETS_SUCCESS:
       return {
-        ...state,
+        ...state, data: action.assets,
       };
     default:
       return {

@@ -9,7 +9,7 @@ import './DashboardPage.scss';
 
 // components
 import AssetCategoryCard from 'components/AssetCategoryCard';
-import Button from 'components/Button/Button';
+import Button from 'components/Button';
 
 // interfaces
 import { DashboardProps, DashboardState } from './interfaces';
@@ -41,6 +41,7 @@ export class DashboardPage extends React.Component<
                 key={category.id}
                 name={category.name}
                 count={category.count}
+                id={category.id}
               />
             ))
           }

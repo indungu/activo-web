@@ -1,10 +1,5 @@
-import * as types from './types';
-
-import {
-  CategoriesActionFailure,
-  CategoriesActionSuccess,
-  Category
-} from './interfaces';
+import { CategoriesActionFailure, CategoriesActionSuccess, Category } from './interfaces';
+import { GET_CATEGORIES_FAILURE, GET_CATEGORIES_SUCCESS } from './types';
 
 // action creators
 /**
@@ -13,10 +8,8 @@ import {
  * @param {Category[]} categories
  * @returns {CategoriesActionSuccess}
  */
-export const getAssetCategoriesSuccess = (
-  categories: Category[]
-): CategoriesActionSuccess => {
-  return { categories, type: types.GET_CATEGORIES_SUCCESS };
+export const getAssetCategoriesSuccess = (categories: Category[]): CategoriesActionSuccess => {
+  return { categories, type: GET_CATEGORIES_SUCCESS };
 };
 
 /**
@@ -25,26 +18,28 @@ export const getAssetCategoriesSuccess = (
  * @returns {CategoriesActionFailure}
  */
 export const getAssetCategoriesFailure = (): CategoriesActionFailure => {
-  return { type: types.GET_CATEGORIES_FAILURE };
+  return { type: GET_CATEGORIES_FAILURE };
 };
 
+// action creators
 /**
  * Returns an object containing action type and payload
  *
  * @param {any} dispatch
  * @returns {object} action type and payload
  */
-export const getAssetCategories = dispatch => {
+export const getAssetCategories = (dispatch) => {
   // TODO: make a call to get the data from the backend
   return new Promise((resolve, reject) => {
     resolve([
       {
+        count: 10,
         id: 1,
         name: 'Macs',
-        count: 10,
-      }
+      },
     ]);
-  }).then((categories: Category[]) => {
+  })
+  .then((categories: Category[]) => {
     dispatch(getAssetCategoriesSuccess(categories));
   });
 };
@@ -52,39 +47,39 @@ export const getAssetCategories = dispatch => {
 const categoriesInitialState = {
   data: [
     {
+      count: 16,
       id: 1,
       name: 'Apple Tv',
-      count: 16,
     },
     {
+      count: 2839,
       id: 2,
       name: 'Chairs',
-      count: 2839,
     },
     {
+      count: 121,
       id: 3,
       name: 'Chromebooks',
-      count: 121,
     },
     {
+      count: 438,
       id: 4,
       name: 'Macbooks',
-      count: 438,
     },
     {
+      count: 293,
       id: 5,
       name: 'Monitors',
-      count: 293,
     },
     {
+      count: 382,
       id: 6,
       name: 'USB Dongles',
-      count: 382,
     },
     {
+      count: 382,
       id: 7,
       name: 'White Board',
-      count: 28,
     },
   ],
   isLoading: false,
@@ -100,7 +95,7 @@ const categoriesInitialState = {
  */
 export const reducer = (state = categoriesInitialState, action) => {
   switch (action.type) {
-    case types.GET_CATEGORIES_SUCCESS:
+    case GET_CATEGORIES_SUCCESS:
       return {
         ...state,
       };

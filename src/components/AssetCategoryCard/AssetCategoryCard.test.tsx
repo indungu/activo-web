@@ -11,6 +11,7 @@ describe('AssetCategoryCard component', () => {
   it('should render correctly', () => {
     const props = {
       count: 10,
+      id: '1',
       name: 'Mac',
     };
     const wrapper = shallow(

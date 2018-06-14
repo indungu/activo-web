@@ -5,7 +5,7 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 
 // components
-import Button from './Button';
+import Button from './';
 
 describe('The button component', () => {
   const TEST_ICON = 'test-icon';

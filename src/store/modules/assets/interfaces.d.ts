@@ -1,4 +1,4 @@
-import { GET_ASSETS_SUCCESS, GET_ASSETS_FAILURE } from './types';
+import { GET_ASSETS_FAILURE, GET_ASSETS_SUCCESS } from './types';
 
 export interface AssetsActionSuccess {
   assets: Asset[];
@@ -9,7 +9,12 @@ export interface AssetsActionFailure {
   type: GET_ASSETS_FAILURE;
 }
 
-interface Asset {
-  id: string,
-  name: string
+export interface Asset {
+  id: string;
+  categoryId: string;
+  assignee: string;
+  date: string;
+  serialNumber: string;
+  assetTag: string;
+  warranty: string;
 }

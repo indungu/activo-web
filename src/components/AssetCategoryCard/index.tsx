@@ -1,5 +1,6 @@
 // react libraries
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 // styles
 import './AssetCategoryCard.scss';
@@ -9,10 +10,10 @@ import { AssetCategoryCardProps } from './interfaces';
 
 const AssetCategoryCard = (props: AssetCategoryCardProps) => {
   return (
-    <div className="grid-item">
+    <Link to={`/assets/${props.id}`} className="grid-item">
       <p className="room-tag">{props.name}</p>
       <p className="item-value">{props.count.toLocaleString()}</p>
-    </div>
+    </Link>
   );
 };
 

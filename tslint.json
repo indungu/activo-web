@@ -1,8 +1,8 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint-config-airbnb",
-    "tslint-eslint-rules"
+    "tslint-eslint-rules",
+    "tslint-config-airbnb"
   ],
   "jsRules": {},
   "rules": {
@@ -141,7 +141,7 @@
     "import-spacing": true,
     "no-irregular-whitespace": true,
     "no-implicit-dependencies": false,
-    "object-literal-sort-keys": true,
+    "object-literal-sort-keys": false,
     "ordered-imports": true,
     "ter-indent": [
       true,

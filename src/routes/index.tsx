@@ -9,6 +9,7 @@ import AuthenticatedRoute from 'components/AuthenticatedRoute';
 import AuthPage from 'pages/AuthPage';
 import DashboardPage from 'pages/DashboardPage';
 import SettingsPage from 'pages/SettingsPage';
+import SingleCategoryPage from 'pages/SingleCategoryPage';
 
 // tslint:disable-next-line:variable-name
 const Routes = () => (
@@ -16,6 +17,7 @@ const Routes = () => (
     <Route exact path="/" component={AuthPage} />
     <AuthenticatedRoute path="/settings" component={SettingsPage} />
     <AuthenticatedRoute path="/dashboard" component={DashboardPage} />
+    <AuthenticatedRoute path="/assets/:id" component={SingleCategoryPage}/>
   </Switch>
 );
 
