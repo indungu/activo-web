@@ -19,10 +19,6 @@ import { NavBarProps } from './interfaces';
 import truncateName from 'utils/helpers/truncateName';
 
 export class NavBar extends React.Component<NavBarProps, {}> {
-  state = {
-    dropDownHidden: true,
-  };
-
   /**
    * This method gets the pathname of the active page
    * 
@@ -31,16 +27,6 @@ export class NavBar extends React.Component<NavBarProps, {}> {
    */
   private isActive (pathname: string): boolean {
     return this.props.location.pathname === pathname;
-  }
-
-  /**
-   * This handler changes the state of the dropDownHidden key
-   * in the state object.
-   * 
-   * @returns {object} An updated version of the un-mutated state
-   */
-  toggleDropDownState = () => {
-    this.setState({ dropDownHidden: !this.state.dropDownHidden });
   }
 
   render() {
@@ -71,8 +57,7 @@ export class NavBar extends React.Component<NavBarProps, {}> {
                     iconSize="regular"
                     title={userDetails.name}
                   />
-                  <i onClick={this.toggleDropDownState} className="dropdown-icon">&#9662;</i>
-                  <ProfileDropDown hidden={this.state.dropDownHidden} />
+                  <ProfileDropDown />
                 </div>
               </div>
             </div>

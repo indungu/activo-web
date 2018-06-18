@@ -8,18 +8,17 @@ import { shallow } from 'enzyme';
 import ProfileDropDown from './';
 
 describe('<ProfileDropDown />', () => {
-  const props = {
-    hidden: false,
-  };
 
   it('should render the dropdown component correctly', () => {
-    const wrapper = shallow(<ProfileDropDown { ...props }/>);
+    const wrapper = shallow(<ProfileDropDown />);
+    wrapper.setState({ dropDownHidden: false });
     expect(wrapper).toMatchSnapshot();
   });
-
-  it('should not be rendered when the hidden props passed evaluates to false', () => {
-    props.hidden = true;
-    const wrapper = shallow(<ProfileDropDown { ...props } />);
-    expect(wrapper.contains(<div className="drop-down-item">Log Out</div>)).toBe(false);
+  
+  it('should close the dropdown modal onClick', () => {
+    const wrapper = shallow(<ProfileDropDown />);
+    wrapper.setState({ dropDownHidden: false });
+    wrapper.find('i').simulate('click');
+    expect(wrapper.find('div').length).toBe(0);
   });
 });
