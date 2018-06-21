@@ -9,7 +9,7 @@
   &__item {
     position: absolute;
     z-index: 10;
-    background-color: map-get($grey, 900);
+    background-color: map-get($grey, 100);
     width: rem(70px);
     padding: rem(20px);
     border: solid 0.05rem map-get($grey, 200);
