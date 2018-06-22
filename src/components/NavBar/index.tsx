@@ -3,7 +3,8 @@ import * as React from 'react';
 
 // third-party libraries
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // styles
 import './NavBar.scss';
@@ -31,6 +32,11 @@ export class NavBar extends React.Component<NavBarProps, {}> {
 
   render() {
     const { userDetails } = this.props;
+    if (userDetails === null) {
+      toast.error('Authentication required. Please log in with an Andela account.');
+      return <Redirect to="/" />;
+    }
+
     return (
       <React.Fragment>
         <div className="navigation-bar">
@@ -51,11 +57,11 @@ export class NavBar extends React.Component<NavBarProps, {}> {
 
                 <div className="profile-details">
                   <UserDetails
-                    icon={userDetails.picture}
-                    fullName={truncateName(userDetails.name)}
+                    icon={userDetails.UserInfo.picture}
+                    fullName={truncateName(userDetails.UserInfo.name)}
                     usernameClass="profile-name"
                     iconSize="regular"
-                    title={userDetails.name}
+                    title={userDetails.UserInfo.name}
                   />
                   <ProfileDropDown />
                 </div>
@@ -95,7 +101,7 @@ export class NavBar extends React.Component<NavBarProps, {}> {
 }
 
 const mapStateToProps = state => ({
-  userDetails: state.auth.userDetail.UserInfo,
+  userDetails: state.auth.userDetail,
 });
 
 export default connect(mapStateToProps)(NavBar);

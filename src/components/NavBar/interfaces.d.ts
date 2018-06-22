@@ -3,8 +3,10 @@
  */
 export interface NavBarProps {
   userDetails: {
-    name: string;
-    picture: string;
+    UserInfo: {
+      name: string;
+      picture: string;
+    }
   };
   location: {
     pathname: string;
